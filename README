@@ -1,0 +1,70 @@
+----------------
+	ABOUT
+----------------
+This is a PHP webhook script for catching POST data from Unbounce and creating leads in Salesforce CRM. 
+
+For more on webhooks in Unbounce: http://support.unbounce.com/entries/307685-how-does-the-form-webhook-work   
+
+
+---------------------
+	Instructions
+---------------------
+
+1) Create new Fields in Salesforce for Unbounce (this is optional but I wanted to be able to do lead assignment and reporting using these fields)
+	- Unbounce Page ID
+	- Unbounce URL
+	- Variant
+  
+2) Find the POST form names for these fields by going to Salesforce Setup > Customize > Leads > Web-to-Lead. Create a new Web-to-Lead form and select the fields you are looking to use in your Unbounce/Salesforce integration. Salesforce will spit out an HTML form. You will want to copy + paste the "names" of each element for use in the PHP script.
+
+I've included all the Lead standard fields in the script, if you want to use them, uncomment or comment each line as needed.
+
+3) Customize the script to include your new custom or standard fields for data you might want to capture in Salesforce (or perform other actions like sending an email or adding to another web app).
+
+4) Go into one of your Unbounce pages and click on "WebHook: POST to a URL". Add the server path of your PHP script to this screen and Save.
+ 
+
+------------------------------------------------------
+	Salesforce Lead Standard Fields    
+------------------------------------------------------
+These may vary based on your Salesforce edition and language so please verify as you implement this script.
+                       
+Address:				'street'
+Annual Revenue:	'revenue' 
+Campaign ID:		'Campaign_ID'
+Campaign Status:	'member_status'
+City:					'city' 
+Company:				'company'
+Country:				'country'
+Description:		'description'
+Do Not Call:		'doNotCall'
+Email:				'email' 
+Email Opt Out:		'emailOptOut'
+Employees:			'employees'   
+Fax:					'fax'   
+Fax Opt Out:		'faxOptOut'
+First Name:			'first_name'  
+Industry:			'industry'
+Last Name:			'last_name'
+Lead Source:		'lead_source' 
+Phone:				'phone'   
+Rating:				'rating'
+Salutation:			'salutation' 
+State					'state'
+Title:				'title'
+Website:				'URL'
+Zip/Postal:			'zip'
+
+-----------------------------------------------------
+	Using this script with Salesforce Campaigns
+----------------------------------------------------- 
+I've included some lines for assigning a lead to a campaign with a member status. You have a few options when using Salesforce campaigns from Unbounce leads. You can either create more than one script (ie: http://example.com/webhook/landingpage1.php, http://example.com/webhook/landingpage2.php ) and have each script assign different fields and different campaigns or you can have one webhook script with if() statements to toggle things like the Campaign ID.  
+                                                     
+
+--------------------------------------
+	Debugging Considerations
+--------------------------------------
+If you are having problems with this, try using http://postbin.org to make sure you are receiving the right data, depending on how the form is setup, some fields may be sending data over using different JSON key names.   
+
+
+http://colinloretz.com/leadhooks-unbounce-and-salesforce-integration
