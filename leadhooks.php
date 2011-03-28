@@ -19,7 +19,7 @@ $form_data = json_decode($unescaped_post_data['data_json']);
 	PARSE DATA FROM UNBOUNCE
 *******************************/
 $email_address 	= $form_data->email[0];
-$page_id				= $_POST['page_id'];							//Unbounce Page ID
+$page_id			= $_POST['page_id'];						//Unbounce Page ID
 $page_url 			= $_POST['page_url'];						//Unbounce Page URL
 $variant 			= $_POST['variant'];     					//Unbounce Page Variant   
 
@@ -28,16 +28,16 @@ $variant 			= $_POST['variant'];     					//Unbounce Page Variant
 *******************************/
 
 //create array of data to be posted to Salesforce
-$post_data['oid']			  				= '<INSERT YOUR ORG ID HERE>';		//Salesforce ORG ID
-$post_data['<INSERT FIELD NAME>'] 	= $page_id;								//Unbounce Page Id
+$post_data['oid']			  			= '<INSERT YOUR ORG ID HERE>';		//Salesforce ORG ID
+$post_data['<INSERT FIELD NAME>'] 	= $page_id;							//Unbounce Page Id
 $post_data['<INSERT FIELD NAME>'] 	= $page_url;							//Unbounce URL
 $post_data['<INSERT FIELD NAME>'] 	= $variant;								//Unbounce Variant
 
-$post_data['email'] 						= $email_address;							//Salesforce Lead Email Address				
+$post_data['email'] 					= $email_address;						//Salesforce Lead Email Address				
 $post_data['lead_source'] 	  			= '<INSERT LEAD SOURCE'>;				//Salesforce Lead Source
 
 //$post_data['Campaign_ID']			= '<INSERT CAMPAIGN ID>';				//Salesforce Campaign ID for Beautiful Homes
-//$post_data['member_status']			= 'Responded';			  			 		//Salesforce Campaign Member Status
+//$post_data['member_status']			= 'Responded';			  			 	//Salesforce Campaign Member Status
 
 /*********************************
 	SENDING DATA TO SALESFORCE
