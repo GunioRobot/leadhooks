@@ -36,7 +36,7 @@ $post_data['<INSERT FIELD NAME>'] 	= $variant;						//Unbounce Variant
 $post_data['email'] 			= $email_address;					//Salesforce Lead Email Address				
 $post_data['lead_source'] 	  	= '<INSERT LEAD SOURCE'>;				//Salesforce Lead Source
 
-//$post_data['Campaign_ID']		= '<INSERT CAMPAIGN ID>';				//Salesforce Campaign ID for Beautiful Homes
+//$post_data['Campaign_ID']		= '<INSERT CAMPAIGN ID>';				//Salesforce Campaign ID
 //$post_data['member_status']		= 'Responded';			  			 //Salesforce Campaign Member Status
 
 /*********************************
